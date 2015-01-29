@@ -1,5 +1,6 @@
 define(function(require, exports, module) {
-    var loadSoundEffect = _.memoize(function() {
+    var loadSoundEffect;
+    loadSoundEffect = _.memoize(function () {
         return {
             beep: new Howl({
                 urls: ['assets/audio/beep.mp3'],

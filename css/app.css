@@ -11,3 +11,7 @@ body {
     user-select: none;
     font-family: 'AvenirNext-Medium';
 }
+
+.appTitle {
+    font-family: 'Marko One', serif;
+}

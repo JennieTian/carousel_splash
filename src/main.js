@@ -13,6 +13,7 @@ define(function(require, exports, module) {
     var Logo = require('views/Logo');
     var LightBody = require('views/LightBody');
     var DarkBody = require('views/DarkBody');
+    var soundEffect     = require('SoundEffect');
 
 	var mainContext = Engine.createContext();
 
@@ -26,7 +27,7 @@ define(function(require, exports, module) {
 
     var darkBody = new DarkBody();
     var darkBodyMod = new Modifier({
-        size: [window.innerWidth, window.innerHeight *.7],
+        size: [window.innerWidth, window.innerHeight *.5],
         origin: [.5,1],
         align: [.5,1]
     });
@@ -48,6 +49,7 @@ define(function(require, exports, module) {
     debug.call(this);
 
     function animate() {
+        soundEffect.fan.play();
         animateCarousel();
     }
 
@@ -84,7 +86,7 @@ define(function(require, exports, module) {
             duration: 600,
             curve: Easing.outBounce
         }, function() {
-
+            soundEffect.fan.stop()
         });
     }
 

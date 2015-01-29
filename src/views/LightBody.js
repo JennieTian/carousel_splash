@@ -11,6 +11,18 @@ define(function(require, exports, module) {
     var soundEffect     = require('SoundEffect');
     var theme           = require('Theme');
 
+    var appTitle;
+    appTitle = new Surface({
+        content: "Carousel",
+        size: [368, 342],
+        properties: {
+            textAlign: 'center',
+            textColor: 'rgb(247, 147, 30)',
+            origin: [.5,.5],
+            align: [.5,.25]
+        }
+    });
+
     function LightBody() {
         View.apply(this, arguments);
         _createLightBody.call(this);
@@ -33,6 +45,28 @@ define(function(require, exports, module) {
     LightBody.prototype.showFinalTitle = function() {
 
     };
+
+
+
+    appTitle.prototype = Object.create(View.prototype);
+    appTitle.prototype.constructor = appTitle;
+
+    appTitle.prototype.next = function() {
+        this.background.setProperties({background: theme.darkColor});
+        setTimeout(function(){
+            this.background.setProperties({background: theme.lightColor});
+        }.bind(this), 800);
+    };
+
+    appTitle.prototype.showTitle = function() {
+
+    };
+
+    appTitle.prototype.showFinalTitle = function() {
+
+    };
+
+
 
     function _createLightBody() {
         this.background = new Surface({
