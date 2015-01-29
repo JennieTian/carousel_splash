@@ -11,18 +11,6 @@ define(function(require, exports, module) {
     var soundEffect     = require('SoundEffect');
     var theme           = require('Theme');
 
-    var appTitle;
-    appTitle = new Surface({
-        content: "Carousel",
-        size: [368, 342],
-        properties: {
-            textAlign: 'center',
-            textColor: 'rgb(247, 147, 30)',
-            origin: [.5,.5],
-            align: [.5,.25]
-        }
-    });
-
     function LightBody() {
         View.apply(this, arguments);
         _createLightBody.call(this);
@@ -38,35 +26,16 @@ define(function(require, exports, module) {
         }.bind(this), 800);
     };
 
-    LightBody.prototype.showTitle = function() {
-
-    };
-
     LightBody.prototype.showFinalTitle = function() {
-
+        this.appTitleMod.setAlign([.5,.055], {
+            duration: 600,
+            curve: Easing.outBounce
+        });
+        this.appTitleMod.setTransform(Transform.scale(.7,.7, 1), {
+            duration: 600,
+            curve: Easing.outBounce
+        });
     };
-
-
-
-    appTitle.prototype = Object.create(View.prototype);
-    appTitle.prototype.constructor = appTitle;
-
-    appTitle.prototype.next = function() {
-        this.background.setProperties({background: theme.darkColor});
-        setTimeout(function(){
-            this.background.setProperties({background: theme.lightColor});
-        }.bind(this), 800);
-    };
-
-    appTitle.prototype.showTitle = function() {
-
-    };
-
-    appTitle.prototype.showFinalTitle = function() {
-
-    };
-
-
 
     function _createLightBody() {
         this.background = new Surface({
@@ -75,6 +44,24 @@ define(function(require, exports, module) {
             }
         });
         this.add(this.background);
+
+        this.appTitle = new Surface({
+            content: "Carousel",
+            properties: {
+                fontSize: window.innerWidth *.12+'px',
+                fontFamily: 'Marko One',
+                textAlign: 'center',
+                color: theme.darkColor
+            }
+        });
+        this.appTitleMod = new Modifier({
+            size: [window.innerWidth, window.innerWidth *.2],
+            origin: [.5, .5],
+            align: [.5, .25],
+            transform: Transform.identity
+        });
+
+        this.add(this.appTitleMod).add(this.appTitle);
     }
 
     module.exports = LightBody;

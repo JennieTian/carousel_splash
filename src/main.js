@@ -12,9 +12,11 @@ define(function(require, exports, module) {
     var Easing = require('famous/transitions/Easing');
 
     var Logo = require('views/Logo');
+    var CameraButton = require('views/CameraButton');
+    var TextButton = require('views/TextButton');
     var LightBody = require('views/LightBody');
     var DarkBody = require('views/DarkBody');
-    var soundEffect     = require('SoundEffect');
+    var soundEffect = require('SoundEffect');
 
 	var mainContext = Engine.createContext();
 
@@ -34,6 +36,12 @@ define(function(require, exports, module) {
     });
     mainContext.add(darkBodyMod).add(darkBody);
 
+    var cameraButton = new CameraButton();
+    mainContext.add(cameraButton);
+
+    var textButton = new TextButton();
+    mainContext.add(textButton);
+
     var logo = new Logo();
     var logoMod = new Modifier({
         size: [window.innerWidth *.3, window.innerWidth *.3],
@@ -41,6 +49,11 @@ define(function(require, exports, module) {
         align: [.5,.5]
     });
     mainContext.add(logoMod).add(logo);
+    logo.on('click', function() {
+        logo.next();
+        animateApp();
+    }.bind(this));
+
     logo.on('click', function() {
         logo.next();
         animateApp();
@@ -77,18 +90,28 @@ define(function(require, exports, module) {
             duration: 600,
             curve: Easing.outBounce
         }, function() {
-            logoMod.setAlign([.5,.9],{
-                duration: 800,
-                curve: Easing.outBounce
-            })
+            //logoMod.setAlign([.5,.9],{
+            //    duration: 800,
+            //    curve: Easing.outBounce
+            //});
         });
+        logoMod.setAlign([.5,.9],{
+            duration: 800,
+            curve: Easing.outBounce
+        }, function() {
+            cameraButton.showFinalPosition();
+            textButton.showFinalPosition();
+        });
+
+
         darkBodyMod.setAlign([.5,.99]);
         darkBodyMod.setSize([window.innerWidth *.96, window.innerHeight *.9], {
             duration: 600,
             curve: Easing.outBounce
         }, function() {
-            soundEffect.fan.stop()
+            soundEffect.fan.stop();
         });
+        lightBody.showFinalTitle();
     }
 
     function debug() {
