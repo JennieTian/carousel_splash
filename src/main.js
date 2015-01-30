@@ -94,6 +94,7 @@ define(function(require, exports, module) {
             //    duration: 800,
             //    curve: Easing.outBounce
             //});
+
         });
         logoMod.setAlign([.5,.9],{
             duration: 800,
