@@ -1,36 +1,16 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <title>famo.us App</title>
-        <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <body>
 
-        <!-- shims for backwards compatibility -->
-        <script type="text/javascript" src="http://code.famo.us/lib/functionPrototypeBind.js"></script>
-        <script type="text/javascript" src="http://code.famo.us/lib/classList.js"></script>
-        <script type="text/javascript" src="http://code.famo.us/lib/requestAnimationFrame.js"></script>
-        <script type="text/javascript" src="src/lib/underscore.js"></script>
-        <script type="text/javascript" src="src/lib/howler.min.js"></script>
+    <div style="position: absolute;left: 50%; height: 820px; width: 400px; margin-left: -200px; text-align:center">
+        <div style="position: absolute; left:50%; margin-left: -180px; top:50%; margin-top:-350px">
+            <iframe src="index2.html" width="357" height="667"></iframe>
+        </div>
 
-        <!-- module loader -->
-        <script type="text/javascript" src="http://code.famo.us/lib/require.js"></script>
+        <div style="margin: 0 auto">
+            <img src="assets/imgs/logo/iPhone.png" width="400" height="820" align="middle"/>
+        </div>
+    </div>
 
-        <!-- famous -->
-        <link rel="stylesheet" type="text/css" href="http://code.famo.us/famous/0.3.0/famous.css" />
-        <script type="text/javascript" src="http://code.famo.us/famous/0.3.0/famous.min.js"></script>
-
-        <!-- app code -->
-        <link rel="stylesheet" type="text/css" href="css/app.css" />
-        <link href='http://fonts.googleapis.com/css?family=Marko+One' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <script type="text/javascript">
-            require.config({
-                baseUrl: './src/'
-            });
-            require(['main']);
-        </script>
-    </head>
-    <body></body>
+    </body>
 </html>
