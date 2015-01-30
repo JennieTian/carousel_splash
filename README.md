@@ -5,4 +5,4 @@ https://help.github.com/articles/creating-project-pages-manually/
 
 
 # Demo showcase
-jennietian.github.io/carousel_splash
+https://jennietian.github.io/carousel_splash
