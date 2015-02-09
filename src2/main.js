@@ -42,12 +42,6 @@ define(function(require, exports, module) {
     var textButton = new TextButton();
     mainContext.add(textButton);
 
-    var iphone = new iphone();
-    mainContext.add(iphone);
-    var iphoneMod = new Modifier({
-        size:
-    })
-
     var logo = new Logo();
     var logoMod = new Modifier({
         size: [window.innerWidth *.3, window.innerWidth *.3],
@@ -63,6 +57,7 @@ define(function(require, exports, module) {
     logo.on('click', function() {
         logo.next();
         animateApp();
+        window.location.reload();
     }.bind(this));
 
     animate();

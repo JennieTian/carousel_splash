@@ -57,6 +57,7 @@ define(function(require, exports, module) {
     logo.on('click', function() {
         logo.next();
         animateApp();
+        window.location.reload()
     }.bind(this));
 
     animate();
@@ -86,6 +87,12 @@ define(function(require, exports, module) {
     }
 
     function animateApp() {
+
+            setTimeout(function(){
+                cameraButton.showFinalPosition();
+                textButton.showFinalPosition();
+            },400);
+
         logoMod.setSize([window.innerWidth *.2, window.innerWidth *.2], {
             duration: 600,
             curve: Easing.outBounce
